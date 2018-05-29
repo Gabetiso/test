@@ -1,7 +1,7 @@
 clear;
 close all;
 
-size = 1e4;
+size = 1e3;
 
 V = zeros(1,size);
 V(1) = -1;
@@ -20,10 +20,23 @@ for i = 1:size
 end
 
 figure;
+
+subplot(1,2,1);
 plot(t,X,t,V);
 xlabel('t');
-ylabel('x or v');
-legend('t-x');
+ylabel('x,v');
+legend('t-x','t-v');
+ax = gca;
+ax.FontName = 'Times New Roman';
+ax.FontSize = 16;
+grid on;
+grid minor;
+
+subplot(1,2,2);
+plot(X,V);
+xlabel('x');
+ylabel('v');
+legend('x-v');
 ax = gca;
 ax.FontName = 'Times New Roman';
 ax.FontSize = 16;
