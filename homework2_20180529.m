@@ -23,8 +23,8 @@ for i = 1:size
   g1(i) = V(i);
   f2(i) = -k/m*(X(i)+V(i)*h);
   g2(i) = V(i)-k/m*X(i)*h;
-  X(i+1) = (f1(i) + f2(i))/2;
-  V(i+1) = (g1(i) + g2(i))/2;
+  X(i+1) = X(i)+h*(g1(i) + g2(i))/2;
+  V(i+1) = V(i)+h*(f1(i) + f2(i))/2;
 end
 
 figure;
@@ -44,7 +44,7 @@ subplot(1,2,2);
 plot(X,V);
 xlabel('x');
 ylabel('v');
-legend('t-v');
+legend('x-v');
 ax = gca;
 ax.FontName = 'Times New Roman';
 ax.FontSize = 16;
