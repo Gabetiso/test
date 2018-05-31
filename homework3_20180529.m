@@ -23,14 +23,14 @@ k = 1;%set
 m = 1;%set
 
 for i = 1:size
-  f1(i) = -k/m*X(i);
+  f1(i) = -k/m * X(i);
   g1(i) = V(i);
-  f2(i) = -k/m*(X(i)+0.5*h*g1(i));
-  g2(i) = V(i)-f1(i)*0.5*h;
-  f3(i) = -k/m*(X(i)+0.5*h*g2(i));
-  g3(i) = V(i)-f2(i)*0.5*h;
-  f4(i) = -k/m*(X(i)+h*g3(i));
-  g4(i) = V(i)-h*f3(i);
+  f2(i) = -k/m * ( X(i)+0.5*h*g1(i) );
+  g2(i) = V(i) + f1(i)*0.5*h;
+  f3(i) = -k/m * ( X(i)+0.5*h*g2(i) );
+  g3(i) = V(i) + f2(i)*0.5*h;
+  f4(i) = -k/m * ( X(i)+h*g3(i) );
+  g4(i) = V(i) + h*f3(i);
   X(i+1) = X(i)+h*(g1(i) + 2*g2(i) + 2*g3(i) + g4(i))/6;
   V(i+1) = V(i)+h*(f1(i) + 2*f2(i) + 2*f3(i) + f4(i))/6;
 end
